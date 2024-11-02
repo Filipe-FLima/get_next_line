@@ -6,7 +6,7 @@
 /*   By: flima <flima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:09:40 by flima             #+#    #+#             */
-/*   Updated: 2024/11/02 18:46:07 by flima            ###   ########.fr       */
+/*   Updated: 2024/11/02 19:26:28 by flima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static char	*set_strings(char *line)
 		i++;
 	if (line[i] == '\0' || line[1] == '\0' || line[i + 1] == '\0')
 		return (NULL);
-	rest_of_line = ft_substr(line, (i + 1), (ft_strlen(line) - i));
+	rest_of_line = ft_substr(line, (i + 1), (ft_strlen(line) - i - 1));
 	line[i + 1] = '\0';
 	return (rest_of_line);
 }
