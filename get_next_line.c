@@ -6,7 +6,7 @@
 /*   By: flima <flima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:09:40 by flima             #+#    #+#             */
-/*   Updated: 2024/11/01 14:34:00 by flima            ###   ########.fr       */
+/*   Updated: 2024/11/02 18:46:07 by flima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static char	*ft_strchr_gnl(const char *str, int c);
 static char	*set_strings(char *line);
-static char	*get_current_line(int fd, char *buffer, char *rest_line);
+static char	*get_current_line(int fd, char *buffer, char *rest_of_line);
 
-static char	*get_current_line(int fd, char *buffer, char *rest_line)
+static char	*get_current_line(int fd, char *buffer, char *rest_of_line)
 {
 	ssize_t	nbyte;
 	char	*temp;
@@ -27,41 +27,37 @@ static char	*get_current_line(int fd, char *buffer, char *rest_line)
 		nbyte = read(fd, buffer, BUFFER_SIZE);
 		if (nbyte < 0)
 		{
-			free(rest_line);
+			free(rest_of_line);
 			return (NULL);
 		}
 		else if (nbyte == 0)
 			break ;
 		buffer[nbyte] = '\0';
-		if (rest_line == NULL)
-			rest_line = ft_strdup("");
-		temp = rest_line;
-		rest_line = ft_strjoin(temp, buffer);
+		if (rest_of_line == NULL)
+			rest_of_line = ft_strdup("");
+		temp = rest_of_line;
+		rest_of_line = ft_strjoin(temp, buffer);
 		free(temp);
+		temp = NULL;
 		if (ft_strchr_gnl(buffer, '\n'))
 			break ;
 	}
-	return (rest_line);
+	return (rest_of_line);
 }
 
 static char	*set_strings(char *line)
 {
 	unsigned int	i;
-	char			*rest_line;
+	char			*rest_of_line;
 
 	i = 0;
 	while (line[i] != '\n' && line[i] != '\0')
 		i++;
 	if (line[i] == '\0' || line[1] == '\0' || line[i + 1] == '\0')
 		return (NULL);
-	rest_line = ft_substr(line, (i + 1), (ft_strlen(line) - i));
-	if (*rest_line == 0)
-	{
-		free(rest_line);
-		rest_line = NULL;
-	}
+	rest_of_line = ft_substr(line, (i + 1), (ft_strlen(line) - i));
 	line[i + 1] = '\0';
-	return (rest_line);
+	return (rest_of_line);
 }
 
 char	*get_next_line(int fd)
@@ -73,12 +69,14 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
 		free(rest_of_line);
+		rest_of_line = NULL;
 		return (NULL);
 	}
 	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (buffer == NULL)
 	{
 		free(rest_of_line);
+		rest_of_line = NULL;
 		return (NULL);
 	}
 	line = get_current_line(fd, buffer, rest_of_line);

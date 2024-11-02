@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flima <flima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:09:40 by flima             #+#    #+#             */
-/*   Updated: 2024/11/01 16:03:21 by flima            ###   ########.fr       */
+/*   Updated: 2024/11/01 17:54:58 by flima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,27 +66,27 @@ char	*get_next_line(int fd)
 {
 	char			*buffer;
 	char			*line;
-	static char		*rest_of_line[1024];
+	static char		*rest_of_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
-		if (rest_of_line[fd] != NULL)
-			free(rest_of_line[fd]);
+		free(rest_of_line);
+		rest_of_line = NULL;
 		return (NULL);
 	}
 	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (buffer == NULL)
 	{
-		if (rest_of_line[fd] != NULL)
-			free(rest_of_line[fd]);
+		if (rest_of_line != NULL)
+			free(rest_of_line);
 		return (NULL);
 	}
-	line = get_current_line(fd, buffer, rest_of_line[fd]);
+	line = get_current_line(fd, buffer, rest_of_line);
 	free(buffer);
 	buffer = NULL;
 	if (line == NULL)
 		return (NULL);
-	rest_of_line[fd] = set_strings(line);
+	rest_of_line = set_strings(line);
 	return (line);
 }
 

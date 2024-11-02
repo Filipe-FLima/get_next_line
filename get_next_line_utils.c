@@ -6,7 +6,7 @@
 /*   By: flima <flima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:12:48 by flima             #+#    #+#             */
-/*   Updated: 2024/10/30 21:05:36 by flima            ###   ########.fr       */
+/*   Updated: 2024/11/02 18:11:21 by flima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	size_t	slen;
 	size_t	i;
 
+	if (s == NULL)
+		return (NULL);
 	slen = ft_strlen(s);
-	if (s == NULL || start > slen)
+	if (start > slen)
 		return (ft_strdup(""));
 	if (len > slen - start)
 		len = slen - start;
-	substr = (char *)malloc(len + 1);
+	substr = (char *)malloc((len + 1) * sizeof(char));
 	if (substr == NULL)
 		return (NULL);
 	i = 0;

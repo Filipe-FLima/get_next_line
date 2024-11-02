@@ -5,13 +5,14 @@ int	main(void)
 	int	fd;
 	char 	*str = "";
 
-	fd = open("read_error.txt", O_RDONLY);
+	fd = open("test_txt/only_nl.txt", O_RDONLY);
 	if (fd < 0)
 	{
-		write (1, "ERRO to open", 13);
+		write (1, "ERRO to open fd", 16);
 		close(fd);
 		return (0);
 	}
+
 	while (str != NULL)
 	{
 		str = get_next_line(fd);
@@ -21,6 +22,7 @@ int	main(void)
 			free(str);
 		}
 	}
+	printf ("%s", str);
 
 	return (0);
 }
