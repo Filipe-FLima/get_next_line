@@ -6,7 +6,7 @@
 /*   By: flima <flima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:12:48 by flima             #+#    #+#             */
-/*   Updated: 2024/11/02 18:11:21 by flima            ###   ########.fr       */
+/*   Updated: 2024/11/03 20:13:01 by flima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,22 @@ size_t	ft_strlen(const char *s)
 	while (s[i] != '\0')
 		i++;
 	return (i);
+}
+
+char	*ft_strchr_gnl(const char *str, int c)
+{
+	size_t	i;
+	char	chr;
+
+	i = 0;
+	chr = (char)c;
+	while (str[i])
+	{
+		if (str[i] == chr)
+			return ((char *)str + i);
+		i++;
+	}
+	if (str[i] == chr)
+		return ((char *)str + i);
+	return (NULL);
 }

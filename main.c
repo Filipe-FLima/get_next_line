@@ -5,7 +5,7 @@ int	main(void)
 	int	fd;
 	char 	*str = "";
 
-	fd = open("test_txt/only_nl.txt", O_RDONLY);
+	fd = open("test_txt/variable_nls.txt", O_RDONLY);
 	if (fd < 0)
 	{
 		write (1, "ERRO to open fd", 16);

@@ -6,7 +6,7 @@
 /*   By: flima <flima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:26:40 by flima             #+#    #+#             */
-/*   Updated: 2024/11/02 18:55:48 by flima            ###   ########.fr       */
+/*   Updated: 2024/11/03 20:13:52 by flima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ char	*ft_strdup(const char *s);
 char	*ft_strjoin(const char *s1, const char *s2);
 size_t	ft_strlen(const char *s);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	*ft_strchr_gnl(const char *str, int c);
 
 #endif
