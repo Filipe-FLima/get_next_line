@@ -55,15 +55,13 @@ get_next_line_utils_bonus.c
 To compile the project, use the following command:
 
 ```bash
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c
----
-
+  cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.
+```
 For the bonus part, use files with the _bonus suffix:
 
 ```bash
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_utils_bonus.c
----
-
+  cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_utils_bonus.c
+```
 ## Testing the Project
 This project includes a test main function that allows you to test get_next_line in various scenarios:
 
@@ -71,4 +69,5 @@ This project includes a test main function that allows you to test get_next_line
 **Standard Input (Terminal)**
 **Bonus - Multiple File Descriptors**
 
-Simply compile the code along with get_next_line.c, get_next_line_utils.c, and, if testing the bonus, the bonus files. This setup enables you to validate both the mandatory and bonus functionality of get_next_line.
+Simply compile the code along with get_next_line.c, get_next_line_utils.c, and, if testing the bonus, the bonus files.
+This setup enables you to validate both the mandatory and bonus functionality of get_next_line.
