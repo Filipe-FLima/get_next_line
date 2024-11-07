@@ -66,7 +66,9 @@ For the bonus part, use files with the _bonus suffix:
 This project includes a test main function that allows you to test get_next_line in various scenarios:
 
 **File Reading**
+
 **Standard Input (Terminal)**
+
 **Bonus - Multiple File Descriptors**
 
 Simply compile the code along with get_next_line.c, get_next_line_utils.c, and, if testing the bonus, the bonus files.
