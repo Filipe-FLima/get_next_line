@@ -19,8 +19,8 @@ The function should be called repeatedly to read subsequent lines from a file or
 It must be implemented efficiently, reading the file in small chunks and returning the line as soon as possible.
 
 **Mandatory Files:**
-get_next_line.c
-get_next_line_utils.c
+get_next_line.c /
+get_next_line_utils.c /
 get_next_line.h
 
 **External Functions:**
@@ -47,8 +47,8 @@ Multiple File Descriptors:
 The get_next_line function must be able to manage multiple file descriptors simultaneously. For example, you should be able to call get_next_line for different descriptors (e.g., 3, 4, and 5) without losing the reading state of each descriptor.
 
 Bonus Files:
-get_next_line_bonus.c
-get_next_line_bonus.h
+get_next_line_bonus.c /
+get_next_line_bonus.h /
 get_next_line_utils_bonus.c
 
 ## Compilation
