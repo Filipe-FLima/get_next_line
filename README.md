@@ -56,11 +56,13 @@ To compile the project, use the following command:
 
 ```bash
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c
+---
 
 For the bonus part, use files with the _bonus suffix:
 
 ```bash
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_utils_bonus.c
+---
 
 ## Testing the Project
 This project includes a test main function that allows you to test get_next_line in various scenarios:
